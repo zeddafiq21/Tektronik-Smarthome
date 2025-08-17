@@ -372,7 +372,16 @@ main .analyse{
     grid-template-columns: repeat(1, 1fr) !important;
         gap: 0;
     }
+.sche{
+        grid-template-columns: repeat(1, 1fr) !important;
+        gap: 0;
+    }
+
    
+   .graph h2 {
+      font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+   }
 
     main .new-users .user-list .user{
         flex-basis: 40%;
@@ -1363,7 +1372,7 @@ main .graph .img{
 
 main .sche{
     display: grid;
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.1rem;
 }
 
