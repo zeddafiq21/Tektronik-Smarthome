@@ -793,7 +793,7 @@ main .analyse{
 }
 
 .team-item:hover::after {
-    background: var(--primary);
+    background: var(--success);
 }
 
 .team-item h5,
