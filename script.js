@@ -18,30 +18,30 @@ apiKey: "AIzaSyBCEUR21q2-OxbU4ikZTCcnwSGhDfCygh8",
   firebase.initializeApp(firebaseConfig);	// Initialize Firebase
  
 $(document).ready(function(){
-	var database = firebase.database();
-	var Lampu_1;
+    var database = firebase.database();
+    var Lampu_1;
 
-	database.ref().on("value", function(snap){
-		Lampu_1 = snap.val().Lampu_1;
-		if(Lampu_1 == 1){
-			document.getElementById("a").checked = true;  
+    // Listener realtime ke node lampu/Lampu_1
+    database.ref("Saklar/Lampu_1").on("value", function(snap){
+        Lampu_1 = snap.val();
+        if(Lampu_1 == 1){
+            $("#a").prop("checked", true);
+        } else {
+            $("#a").prop("checked", false);
+        }
+    });
 
-		} else{
-			document.getElementById("a").checked = false;
-		}
-	});	
-
-	$("#a").click(function(){
-		var firebaseRef = firebase.database().ref().child("Lampu_1");
-
-		if(Lampu_1 == 1){
-			firebaseRef.set(0);
-			Lampu_1 = 0;
-		} else {
-			firebaseRef.set(1);
-			Lampu_1 = 1;
-		}
-	})
+    // Klik checkbox untuk ubah state
+    $("#a").click(function(){
+        var firebaseRef = database.ref("Saklar/Lampu_1");
+        if(Lampu_1 == 1){
+            firebaseRef.set(0);
+            Lampu_1 = 0;
+        } else {
+            firebaseRef.set(1);
+            Lampu_1 = 1;
+        }
+    });
 });
 
 
@@ -50,91 +50,90 @@ $(document).ready(function(){
 
 
 $(document).ready(function(){
-	var database = firebase.database();
-	var Lampu_2;
+    var database = firebase.database();
+    var Lampu_2;
 
-	database.ref().on("value", function(snap){
-		Lampu_2 = snap.val().Lampu_2;
-		if(Lampu_2 == 1){
-			document.getElementById("b").checked = true;  
+    // Listener realtime ke node lampu/Lampu_1
+    database.ref("Saklar/Lampu_2").on("value", function(snap){
+        Lampu_2 = snap.val();
+        if(Lampu_2 == 1){
+            $("#b").prop("checked", true);
+        } else {
+            $("#b").prop("checked", false);
+        }
+    });
 
-		} else{
-			document.getElementById("b").checked = false;
-		}
-	});
-
-	$("#b").click(function(){
-		var firebaseRef = firebase.database().ref().child("Lampu_2");
-
-		if(Lampu_2 == 1){
-			firebaseRef.set(0);
-			Lampu_2 = 0;
-		} else {
-			firebaseRef.set(1);
-			Lampu_2 = 1;
-		}
-	})
-});
-
-
-
-
-
-$(document).ready(function(){
-	var database = firebase.database();
-	var Lampu_3;
-
-	database.ref().on("value", function(snap){
-		Lampu_3 = snap.val().Lampu_3;
-		if(Lampu_3 == 1){
-			document.getElementById("c").checked = true;  
-
-		} else{
-			document.getElementById("c").checked = false;
-		}
-	});
-
-	$("#c").click(function(){
-		var firebaseRef = firebase.database().ref().child("Lampu_3");
-
-		if(Lampu_3 == 1){
-			firebaseRef.set(0);
-			Lampu_3 = 0;
-		} else {
-			firebaseRef.set(1);
-			Lampu_3 = 1;
-		}
-	})
+    // Klik checkbox untuk ubah state
+    $("#b").click(function(){
+        var firebaseRef = database.ref("Saklar/Lampu_2");
+        if(Lampu_2 == 1){
+            firebaseRef.set(0);
+            Lampu_2 = 0;
+        } else {
+            firebaseRef.set(1);
+            Lampu_2 = 1;
+        }
+    });
 });
 
 
 
 
 $(document).ready(function(){
-	var database = firebase.database();
-	var Lampu_4;
+    var database = firebase.database();
+    var Lampu_3;
 
-	database.ref().on("value", function(snap){
-		Lampu_4 = snap.val().Lampu_4;
-		if(Lampu_4 == 1){
-			document.getElementById("d").checked = true;  
+    // Listener realtime ke node lampu/Lampu_1
+    database.ref("Saklar/Lampu_3").on("value", function(snap){
+        Lampu_3 = snap.val();
+        if(Lampu_3 == 1){
+            $("#c").prop("checked", true);
+        } else {
+            $("#c").prop("checked", false);
+        }
+    });
 
-		} else{
-			document.getElementById("d").checked = false;
-		}
-	});
+    // Klik checkbox untuk ubah state
+    $("#c").click(function(){
+        var firebaseRef = database.ref("Saklar/Lampu_3");
+        if(Lampu_3 == 1){
+            firebaseRef.set(0);
+            Lampu_3 = 0;
+        } else {
+            firebaseRef.set(1);
+            Lampu_3 = 1;
+        }
+    });
+});
 
-	$("#d").click(function(){
-		var firebaseRef = firebase.database().ref().child("Lampu_4");
 
-		if(Lampu_4 == 1){
-			firebaseRef.set(0);
-			Lampu_4 = 0;
-		} else {
-			firebaseRef.set(1);
-			Lampu_4 = 1;
-		}
-	})
+
+
+$(document).ready(function(){
+    var database = firebase.database();
+    var Lampu_4;
+
+    // Listener realtime ke node lampu/Lampu_1
+    database.ref("Saklar/Lampu_4").on("value", function(snap){
+        Lampu_4 = snap.val();
+        if(Lampu_4 == 1){
+            $("#d").prop("checked", true);
+        } else {
+            $("#d").prop("checked", false);
+        }
+    });
+
+    // Klik checkbox untuk ubah state
+    $("#d").click(function(){
+        var firebaseRef = database.ref("Saklar/Lampu_4");
+        if(Lampu_4 == 1){
+            firebaseRef.set(0);
+            Lampu_4 = 0;
+        } else {
+            firebaseRef.set(1);
+            Lampu_4 = 1;
+        }
+    });
 });
 
 
@@ -143,232 +142,229 @@ $(document).ready(function(){
 
 
 $(document).ready(function(){
-	var database = firebase.database();
-	var Lampu_5;
+    var database = firebase.database();
+    var Lampu_5;
 
-	database.ref().on("value", function(snap){
-		Lampu_5 = snap.val().Lampu_5;
-		if(Lampu_5 == 1){
-			document.getElementById("e").checked = true;  
+    // Listener realtime ke node lampu/Lampu_1
+    database.ref("Saklar/Lampu_5").on("value", function(snap){
+        Lampu_5 = snap.val();
+        if(Lampu_5 == 1){
+            $("#e").prop("checked", true);
+        } else {
+            $("#e").prop("checked", false);
+        }
+    });
 
-		} else{
-			document.getElementById("e").checked = false;
-		}
-	});
+    // Klik checkbox untuk ubah state
+    $("#e").click(function(){
+        var firebaseRef = database.ref("Saklar/Lampu_5");
+        if(Lampu_5 == 1){
+            firebaseRef.set(0);
+            Lampu_5 = 0;
+        } else {
+            firebaseRef.set(1);
+            Lampu_5 = 1;
+        }
+    });
+});
 
-	$("#e").click(function(){
-		var firebaseRef = firebase.database().ref().child("Lampu_5");
 
-		if(Lampu_5 == 1){
-			firebaseRef.set(0);
-			Lampu_5 = 0;
-		} else {
-			firebaseRef.set(1);
-			Lampu_5 = 1;
-		}
-	})
+$(document).ready(function(){
+    var database = firebase.database();
+    var Lampu_6;
+
+    // Listener realtime ke node lampu/Lampu_1
+    database.ref("Saklar/Lampu_6").on("value", function(snap){
+        Lampu_6 = snap.val();
+        if(Lampu_6 == 1){
+            $("#f").prop("checked", true);
+        } else {
+            $("#f").prop("checked", false);
+        }
+    });
+
+    // Klik checkbox untuk ubah state
+    $("#f").click(function(){
+        var firebaseRef = database.ref("Saklar/Lampu_6");
+        if(Lampu_6 == 1){
+            firebaseRef.set(0);
+            Lampu_6 = 0;
+        } else {
+            firebaseRef.set(1);
+            Lampu_6 = 1;
+        }
+    });
+});
+
+
+$(document).ready(function(){
+    var database = firebase.database();
+    var Pendingin_1;
+
+    // Listener realtime ke node lampu/Lampu_1
+    database.ref("Saklar/Lampu_7").on("value", function(snap){
+        Pendingin_1 = snap.val();
+        if(Pendingin_1 == 1){
+            $("#g").prop("checked", true);
+        } else {
+            $("#g").prop("checked", false);
+        }
+    });
+
+    // Klik checkbox untuk ubah state
+    $("#g").click(function(){
+        var firebaseRef = database.ref("Saklar/Lampu_7");
+        if(Pendingin_1 == 1){
+            firebaseRef.set(0);
+            Pendingin_1 = 0;
+        } else {
+            firebaseRef.set(1);
+            Pendingin_1 = 1;
+        }
+    });
+});
+
+
+$(document).ready(function(){
+    var database = firebase.database();
+    var Pendingin_2;
+
+    // Listener realtime ke node lampu/Lampu_1
+    database.ref("Saklar/Lampu_8").on("value", function(snap){
+        Pendingin_2 = snap.val();
+        if(Pendingin_2 == 1){
+            $("#h").prop("checked", true);
+        } else {
+            $("#h").prop("checked", false);
+        }
+    });
+
+    // Klik checkbox untuk ubah state
+    $("#h").click(function(){
+        var firebaseRef = database.ref("Saklar/Lampu_8");
+        if(Pendingin_2 == 1){
+            firebaseRef.set(0);
+            Pendingin_2 = 0;
+        } else {
+            firebaseRef.set(1);
+            Pendingin_2 = 1;
+        }
+    });
+});
+
+
+$(document).ready(function(){
+    var database = firebase.database();
+    var Pendingin_3;
+
+    // Listener realtime ke node lampu/Lampu_1
+    database.ref("Saklar/Lampu_9").on("value", function(snap){
+        Pendingin_3 = snap.val();
+        if(Pendingin_3 == 1){
+            $("#i").prop("checked", true);
+        } else {
+            $("#i").prop("checked", false);
+        }
+    });
+
+    // Klik checkbox untuk ubah state
+    $("#i").click(function(){
+        var firebaseRef = database.ref("Saklar/Lampu_9");
+        if(Pendingin_3 == 1){
+            firebaseRef.set(0);
+            Pendingin_3 = 0;
+        } else {
+            firebaseRef.set(1);
+            Pendingin_3 = 1;
+        }
+    });
 });
 
 
 
 $(document).ready(function(){
-	var database = firebase.database();
-	var Lampu_6;
+    var database = firebase.database();
+    var Pendingin_4;
 
-	database.ref().on("value", function(snap){
-		Lampu_6 = snap.val().Lampu_6;
-		if(Lampu_6 == 1){
-			document.getElementById("f").checked = true;  
+    // Listener realtime ke node lampu/Lampu_1
+    database.ref("Saklar/Lampu_10").on("value", function(snap){
+        Pendingin_4 = snap.val();
+        if(Pendingin_4 == 1){
+            $("#j").prop("checked", true);
+        } else {
+            $("#j").prop("checked", false);
+        }
+    });
 
-		} else{
-			document.getElementById("f").checked = false;
-		}
-	});
-
-	$("#f").click(function(){
-		var firebaseRef = firebase.database().ref().child("Lampu_6");
-
-		if(Lampu_6 == 1){
-			firebaseRef.set(0);
-			Lampu_6 = 0;
-		} else {
-			firebaseRef.set(1);
-			Lampu_6 = 1;
-		}
-	})
-});
-
-
-
-$(document).ready(function(){
-	var database = firebase.database();
-	var Pendingin_1;
-
-	database.ref().on("value", function(snap){
-		Pendingin_1 = snap.val().Pendingin_1;
-		if(Pendingin_1 == 1){
-			document.getElementById("g").checked = true;  
-
-		} else{
-			document.getElementById("g").checked = false;
-		}
-	});
-
-	$("#g").click(function(){
-		var firebaseRef = firebase.database().ref().child("Pendingin_1");
-
-		if(Pendingin_1 == 1){
-			firebaseRef.set(0);
-			Pendingin_1 = 0;
-		} else {
-			firebaseRef.set(1);
-			Pendingin_1 = 1;
-		}
-	})
-});
-
-
-
-$(document).ready(function(){
-	var database = firebase.database();
-	var Pendingin_2;
-
-	database.ref().on("value", function(snap){
-		Pendingin_2 = snap.val().Pendingin_2;
-		if(Pendingin_2 == 1){
-			document.getElementById("h").checked = true;  
-
-		} else{
-			document.getElementById("h").checked = false;
-		}
-	});
-
-	$("#h").click(function(){
-		var firebaseRef = firebase.database().ref().child("Pendingin_2");
-
-		if(Pendingin_2 == 1){
-			firebaseRef.set(0);
-			Pendingin_2 = 0;
-		} else {
-			firebaseRef.set(1);
-			Pendingin_2 = 1;
-		}
-	})
+    // Klik checkbox untuk ubah state
+    $("#j").click(function(){
+        var firebaseRef = database.ref("Saklar/Lampu_10");
+        if(Pendingin_4 == 1){
+            firebaseRef.set(0);
+            Pendingin_4 = 0;
+        } else {
+            firebaseRef.set(1);
+            Pendingin_4 = 1;
+        }
+    });
 });
 
 
 $(document).ready(function(){
-	var database = firebase.database();
-	var Pendingin_3;
+    var database = firebase.database();
+    var Pendingin_5;
 
-	database.ref().on("value", function(snap){
-		Pendingin_3 = snap.val().Pendingin_3;
-		if(Pendingin_3 == 1){
-			document.getElementById("i").checked = true;  
+    // Listener realtime ke node lampu/Lampu_1
+    database.ref("Saklar/Lampu_11").on("value", function(snap){
+        Pendingin_5 = snap.val();
+        if(Pendingin_5 == 1){
+            $("#k").prop("checked", true);
+        } else {
+            $("#k").prop("checked", false);
+        }
+    });
 
-		} else{
-			document.getElementById("i").checked = false;
-		}
-	});
-
-	$("#i").click(function(){
-		var firebaseRef = firebase.database().ref().child("Pendingin_3");
-
-		if(Pendingin_3 == 1){
-			firebaseRef.set(0);
-			Pendingin_3 = 0;
-		} else {
-			firebaseRef.set(1);
-			Pendingin_3 = 1;
-		}
-	})
-});
-
-
-
-$(document).ready(function(){
-	var database = firebase.database();
-	var Pendingin_4;
-
-	database.ref().on("value", function(snap){
-		Pendingin_4 = snap.val().Pendingin_4;
-		if(Pendingin_4 == 1){
-			document.getElementById("j").checked = true;  
-
-		} else{
-			document.getElementById("j").checked = false;
-		}
-	});
-
-	$("#j").click(function(){
-		var firebaseRef = firebase.database().ref().child("Pendingin_4");
-
-		if(Pendingin_4 == 1){
-			firebaseRef.set(0);
-			Pendingin_4 = 0;
-		} else {
-			firebaseRef.set(1);
-			Pendingin_4 = 1;
-		}
-	})
-});
-
-
-$(document).ready(function(){
-	var database = firebase.database();
-	var Pendingin_5;
-
-	database.ref().on("value", function(snap){
-		Pendingin_5 = snap.val().Pendingin_5;
-		if(Pendingin_5 == 1){
-			document.getElementById("k").checked = true;  
-
-		} else{
-			document.getElementById("k").checked = false;
-		}
-	});
-
-	$("#k").click(function(){
-		var firebaseRef = firebase.database().ref().child("Pendingin_5");
-
-		if(Pendingin_5 == 1){
-			firebaseRef.set(0);
-			Pendingin_5 = 0;
-		} else {
-			firebaseRef.set(1);
-			Pendingin_5 = 1;
-		}
-	})
+    // Klik checkbox untuk ubah state
+    $("#k").click(function(){
+        var firebaseRef = database.ref("Saklar/Lampu_11");
+        if(Pendingin_5 == 1){
+            firebaseRef.set(0);
+            Pendingin_5 = 0;
+        } else {
+            firebaseRef.set(1);
+            Pendingin_5 = 1;
+        }
+    });
 });
 
 
 
 
 $(document).ready(function(){
-	var database = firebase.database();
-	var Pendingin_6;
+    var database = firebase.database();
+    var Pendingin_6;
 
-	database.ref().on("value", function(snap){
-		Pendingin_6 = snap.val().Pendingin_6;
-		if(Pendingin_6 == 1){
-			document.getElementById("l").checked = true;  
+    // Listener realtime ke node lampu/Lampu_1
+    database.ref("Saklar/Lampu_12").on("value", function(snap){
+        Pendingin_6 = snap.val();
+        if(Pendingin_6 == 1){
+            $("#l").prop("checked", true);
+        } else {
+            $("#l").prop("checked", false);
+        }
+    });
 
-		} else{
-			document.getElementById("l").checked = false;
-		}
-	});
-
-	$("#l").click(function(){
-		var firebaseRef = firebase.database().ref().child("Pendingin_6");
-
-		if(Pendingin_6 == 1){
-			firebaseRef.set(0);
-			Pendingin_6 = 0;
-		} else {
-			firebaseRef.set(1);
-			Pendingin_6 = 1;
-		}
-	})
+    // Klik checkbox untuk ubah state
+    $("#l").click(function(){
+        var firebaseRef = database.ref("Saklar/Lampu_12");
+        if(Pendingin_6 == 1){
+            firebaseRef.set(0);
+            Pendingin_6 = 0;
+        } else {
+            firebaseRef.set(1);
+            Pendingin_6 = 1;
+        }
+    });
 });
 
  
