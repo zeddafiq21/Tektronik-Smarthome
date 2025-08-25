@@ -22,7 +22,7 @@ $(document).ready(function(){
     var Lampu_1;
 
     // Listener realtime ke node lampu/Lampu_1
-    database.ref("Saklar/Lampu_1").on("value", function(snap){
+    database.ref("Lampu_1").on("value", function(snap){
         Lampu_1 = snap.val();
         if(Lampu_1 == 1){
             $("#a").prop("checked", true);
@@ -33,7 +33,7 @@ $(document).ready(function(){
 
     // Klik checkbox untuk ubah state
     $("#a").click(function(){
-        var firebaseRef = database.ref("Saklar/Lampu_1");
+        var firebaseRef = database.ref("Lampu_1");
         if(Lampu_1 == 1){
             firebaseRef.set(0);
             Lampu_1 = 0;
