@@ -1,8 +1,3 @@
-
-
-
-
-
 const firebaseConfig = {
 apiKey: "AIzaSyBCEUR21q2-OxbU4ikZTCcnwSGhDfCygh8",
   authDomain: "smarthome-v2-tektronik.firebaseapp.com",
@@ -12,7 +7,7 @@ apiKey: "AIzaSyBCEUR21q2-OxbU4ikZTCcnwSGhDfCygh8",
   messagingSenderId: "259874048885",
   appId: "1:259874048885:web:53870a46ac4d722e51a13c",
   measurementId: "G-2SL9TBPRJP"
-  };
+  };    
 
   // Initialize Firebas
   firebase.initializeApp(firebaseConfig);	// Initialize Firebase
@@ -369,15 +364,15 @@ $(document).ready(function(){
 
  
 var database = firebase.database();
-var dataRef1 = database.ref('PV/Tegangan');
-var dataRef2 = database.ref('PV/Arus');
-var dataRef3 = database.ref('PV/Daya');
+var dataRef1 = database.ref('PLTS/PVTegangan');
+var dataRef2 = database.ref('PLTS/Arus');
+var dataRef3 = database.ref('PLTS/PVDaya');
 
 
 
-var dataRef4 = database.ref('Baterai/Tegangan');
-var dataRef5 = database.ref('Baterai/Arus');
-var dataRef6 = database.ref('Baterai/Daya');
+var dataRef4 = database.ref('PLTS/BattTegangan');
+var dataRef5 = database.ref('PLTS/BattArus');
+var dataRef6 = database.ref('PLTS/BateraiDaya');
 
 
 
