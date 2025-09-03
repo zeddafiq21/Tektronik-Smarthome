@@ -365,7 +365,7 @@ $(document).ready(function(){
  
 var database = firebase.database();
 var dataRef1 = database.ref('PLTS/PVTegangan');
-var dataRef2 = database.ref('PLTS/Arus');
+var dataRef2 = database.ref('PLTS/PVArus');
 var dataRef3 = database.ref('PLTS/PVDaya');
 
 
